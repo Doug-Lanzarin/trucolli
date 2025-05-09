@@ -14,9 +14,10 @@ export const styles = StyleSheet.create({
         height: '100%',
     },
     image: {
-        marginTop: 5,
+        marginTop: 4,
+        marginLeft: -2,
         width: 50,
-        height: 27,
+        height: 24,
         resizeMode: 'contain'
     },
     overlay: {

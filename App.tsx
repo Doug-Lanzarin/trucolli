@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import TrucoScreen from "./src/screens/TrucoScreen/TrucoScreen";
+import {SafeAreaView, useColorScheme} from "react-native";
+import {Colors} from "react-native/Libraries/NewAppScreen";
+import React from "react";
+import TrucoScreen from "./src/screens/TrucoScreen/TrucoScreen.tsx";
 
-export default function App() {
+
+function App(): React.JSX.Element {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    flex: 1
+  };
+
   return (
-    <View style={styles.container}>
-      <TrucoScreen />
-    </View>
+    <SafeAreaView style={backgroundStyle}>
+      <TrucoScreen/>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
