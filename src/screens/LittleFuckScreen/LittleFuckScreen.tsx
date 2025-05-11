@@ -278,9 +278,7 @@ const LittleFuckScreen: React.FC = () => {
         }).start();
     };
 
-    // Reset everything
     const resetEverything = async (): Promise<void> => {
-        // Iniciar com lista vazia
         setPlayers([]);
         setGameStarted(false);
         setGameOver(false);
