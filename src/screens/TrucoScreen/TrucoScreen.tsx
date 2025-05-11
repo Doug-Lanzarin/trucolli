@@ -6,18 +6,20 @@ import {
     Animated,
     StatusBar,
     ActivityIndicator,
-    ImageBackground,
     Platform,
     ScrollView, Image, SafeAreaView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GameState, ScoreHistoryItem} from "./types";
 import {styles} from "./styles";
-import {BOTTOM_INSET, MAX_SCORE, STORAGE_KEY} from "./constants";
+import {BOTTOM_INSET, MAX_SCORE, STATUSBAR_HEIGHT, STORAGE_KEY} from "./constants";
+import Icon from "react-native-vector-icons/FontAwesome";
+import {useNavigation} from "@react-navigation/native";
 
 
 
 const TrucoScreen: React.FC = () => {
+    const navigation = useNavigation<any>();
     const [team1Score, setTeam1Score] = useState<number>(0);
     const [team2Score, setTeam2Score] = useState<number>(0);
     const [team1Wins, setTeam1Wins] = useState<number>(0);
@@ -343,13 +345,19 @@ const TrucoScreen: React.FC = () => {
     }
 
     return (
-        <SafeAreaView style={styles.backgroundContainer}>
-            <StatusBar barStyle="light-content" backgroundColor="#1A2C42" translucent={false} />
+        <SafeAreaView style={[styles.backgroundContainer, { paddingTop: 0 }]}>
+            <View style={{ height: STATUSBAR_HEIGHT }} />
+            <StatusBar barStyle="light-content" backgroundColor="rgba(0, 0, 0, 0.3)" translucent={true} />
                 <View style={styles.overlay} />
                 <View style={styles.mainContainer}>
                     <Animated.View style={[styles.headerContainer, { opacity: headerOpacity }]}>
                         <View style={styles.header}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between'}} >
+                                <TouchableOpacity style={{height:40, width: 48, marginLeft: -18, alignItems: 'center'}} onPress={() => navigation.goBack()}>
+                                    <View style={{height: 40, justifyContent: 'center'}}>
+                                        <Icon name={'angle-left'} size={30} color="#FFFFFF" />
+                                    </View>
+                                </TouchableOpacity>
                                 <Text style={styles.title}>Truc</Text>
                                     <Image
                                         source={require('../../../assets/ollidark.png')}

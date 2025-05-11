@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
         height: '100%',
     },
     image: {
-        marginTop: 4,
+        marginTop: 8,
         marginLeft: -2,
         width: 50,
         height: 24,
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     },
     mainContainer: {
         flex: 1,
-        paddingTop: Platform.OS === 'android' ? STATUSBAR_HEIGHT : 0,
+        // paddingTop: Platform.OS === 'android' ? STATUSBAR_HEIGHT : 0,
     },
     scrollContent: {
         flexGrow: 1,
