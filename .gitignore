@@ -1,6 +1,8 @@
 # Arquivos temporários do sistema
 .DS_Store
 Thumbs.db
+*.apk
+
 
 # Pastas de dependências
 /node_modules/
